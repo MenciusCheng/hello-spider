@@ -1,0 +1,26 @@
+<configuration>
+
+    <property name="LOG_HOME" value="target/test-logs" />
+    <property name="LOG_FILE_NAME" value="/crawler4j.log" />
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date{HH:mm:ss} %-5level [%thread] - [%logger{36}]- %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${LOG_HOME}/${LOG_FILE_NAME}</file>
+        <encoder>
+            <pattern>%date %-5level [%thread] - [%logger] - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org.apache.http" level="INFO" />
+    <logger name="edu.uci.ics.crawler4j.fetcher" level="INFO" />
+
+    <root level="DEBUG">
+        <appender-ref ref="STDOUT" />
+        <!--<appender-ref ref="FILE" />-->
+    </root>
+</configuration>
